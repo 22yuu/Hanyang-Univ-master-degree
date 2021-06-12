@@ -39,7 +39,13 @@ Iterative method<br/>
 <br/>![image](https://user-images.githubusercontent.com/48381447/121782738-0747e180-cbe6-11eb-9843-d345c62dc5a8.png) <br/>
 
 > ## 결과
-&nbsp;&nbsp;&nbsp;&nbsp;구현은 원래 저자의 방법과 달리 앙상블 모델을 다르게 구성을 해봤다. 원래 저자의 앙상블 모델들은 Inception V3, Inception V4, Inception Resnet V2, Resnet-152, Inception V3-ens3,ens4, Inception Resnet V2-ens의 7가지 모델들로 구성되어 있고, 본인은 Inception V4 모델 대신 Mobile V2 모델을 적용하였고, 테스트 및 Adversarial example을 생성한 base model 모델도 Mobile V2 모델로 구현하였다. 실험은 Perturbation의 사이즈 은 8, 16으로 설정하였고, 전체 반복 횟수 T는 10으로 설정하여 실험을 수행하였다.
+&nbsp;&nbsp;&nbsp;&nbsp;구현은 원래 저자의 방법과 달리 앙상블 모델을 다르게 구성을 해봤다. 원래 저자의 앙상블 모델들은 Inception V3, Inception V4, Inception Resnet V2, Resnet-152, Inception V3-ens3,ens4, Inception Resnet V2-ens의 7가지 모델들로 구성되어 있고, 본인은 Inception V4 모델 대신 Mobile V2 모델을 적용하였고, 테스트 및 Adversarial example을 생성한 base model 모델도 Mobile V2 모델로 구현하였다. 실험은 Perturbation의 사이즈는 8, 16으로 설정하였고, 전체 반복 횟수 T는 10으로 설정하여 실험을 수행하였다.
+
+![image](https://user-images.githubusercontent.com/48381447/121783557-3d876000-cbea-11eb-9070-ee42b2bd1f47.png) ![image](https://user-images.githubusercontent.com/48381447/121783561-40825080-cbea-11eb-8d09-6fce4949fa87.png)
+  Perturbation의 크기(좌측 부터) :  8,  16
+
+
+
 Mobile NET을 베이스모델로 생성한 Adversarial examples들은 화이트박스에서는 100%의 공격 성공률을 보였고, Inception V3 74.67%, Inception v3 ens3 84.67%, Inception v3 adv ens3 - 56.67%, Inception v3 adv ens4 - 54.67%, Inceptin res adv - 48%, Inception res adv ens = 24.67%, Resnet 152 - 80.67%의 공격 성공률을 보였다.
 
 저자의 결과와 달리 블랙 박스에서의 공격 성능이 많이 떨어졌다. 저자가 제안한 방법에 따르면 위의 7 개 모델들로 부터 98% 이상의 공격 성공률을 보였다. 이후 논문에서 발표한 공격 성공률과 근사한 결과를 도출하기 위해 베이스 모델을 모바일 넷이 아닌 다른 모델들로 구성하여 실험을 해볼 것이다.
